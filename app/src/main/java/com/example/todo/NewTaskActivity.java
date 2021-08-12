@@ -32,20 +32,24 @@ public class NewTaskActivity extends AppCompatActivity {
         if (getIntent().getStringExtra("task")!=null){
             isUpdate=true;
             String task=getIntent().getStringExtra("task");
-            binding.taskEdt.setText(task);
+            String description=getIntent().getStringExtra("description");
+            binding.taskTitle.setText(task);
+            binding.taskDescription.setText(description);
         }
        final boolean finalIsUpdate = isUpdate;
         binding.saveTask.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String text=binding.taskEdt.getText().toString();
+                String taskTitle=binding.taskTitle.getText().toString();
+                String description=binding.taskDescription.getText().toString();
                 if(finalIsUpdate){
-                    db.updateTask(getIntent().getIntExtra("id",0),text);
+                    db.updateTask(getIntent().getIntExtra("id",0),taskTitle,description);
                     startActivity(new Intent(NewTaskActivity.this,MainActivity.class));
 
                 }else{
                     ListModel listModel=new ListModel();
-                    listModel.setTask(text);
+                    listModel.setTask(taskTitle);
+                    listModel.setDescription(description);
                     db.insertTask(listModel);
                     startActivity(new Intent(NewTaskActivity.this,MainActivity.class));
                 }

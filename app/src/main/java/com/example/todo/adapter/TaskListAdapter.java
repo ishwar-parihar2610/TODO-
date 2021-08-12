@@ -15,6 +15,7 @@ import com.example.todo.MainActivity;
 import com.example.todo.Modal.ListModel;
 import com.example.todo.NewTaskActivity;
 import com.example.todo.R;
+import com.example.todo.TaskViewActivity;
 import com.example.todo.databinding.TaskItemLayoutBinding;
 import com.example.todo.utils.DataBaseHandler;
 
@@ -47,13 +48,14 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.viewHo
     public void onBindViewHolder(@NonNull TaskListAdapter.viewHolder holder, int position) {
         db.openDataBase();
         ListModel listModel = listModels.get(position);
-        holder.binding.task.setText(listModel.getTask());
-        holder.binding.task.setOnClickListener(new View.OnClickListener() {
+        holder.binding.taskTitle.setText(listModel.getTask());
+        holder.binding.taskEdt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(activity, NewTaskActivity.class);
                 intent.putExtra("id",listModel.getId());
                 intent.putExtra("task",listModel.getTask());
+                intent.putExtra("description",listModel.getDescription());
                 activity.startActivity(intent);
             }
         });
@@ -66,7 +68,15 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.viewHo
                 notifyItemRemoved(position);
             }
         });
-
+        holder.binding.taskListLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(activity, TaskViewActivity.class);
+                intent.putExtra("task",listModel.getTask());
+                intent.putExtra("description",listModel.getDescription());
+                activity.startActivity(intent);
+            }
+        });
     }
 
     @Override

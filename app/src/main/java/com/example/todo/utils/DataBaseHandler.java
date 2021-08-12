@@ -20,7 +20,8 @@ public class DataBaseHandler extends SQLiteOpenHelper {
     private static final String TODO_TABLE = "todo";
     private static final String ID = "id";
     private static final String TASK = "task";
-    private static final String  CREATE_TODO_TABLE="CREATE TABLE "+TODO_TABLE + "(" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + TASK + " TEXT)";
+    private static final String DESCRIPTION = "description";
+    private static final String  CREATE_TODO_TABLE="CREATE TABLE "+TODO_TABLE + "(" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + TASK + " TEXT," + DESCRIPTION + " TEXT)";
 
     private SQLiteDatabase database;
 
@@ -47,6 +48,7 @@ public class DataBaseHandler extends SQLiteOpenHelper {
     public void insertTask(ListModel listModel) {
         ContentValues contentValues = new ContentValues();
         contentValues.put(TASK, listModel.getTask());
+        contentValues.put(DESCRIPTION,listModel.getDescription());
         database.insert(TODO_TABLE, null, contentValues);
 
     }
@@ -63,6 +65,7 @@ public class DataBaseHandler extends SQLiteOpenHelper {
                         ListModel listModel = new ListModel();
                         listModel.setId(cursor.getInt(cursor.getColumnIndex(ID)));
                         listModel.setTask(cursor.getString(cursor.getColumnIndex(TASK)));
+                        listModel.setDescription(cursor.getString(cursor.getColumnIndex(DESCRIPTION)));
                         taskList.add(listModel);
                     } while (cursor.moveToNext());
                 }else{
@@ -76,9 +79,10 @@ public class DataBaseHandler extends SQLiteOpenHelper {
         return taskList;
     }
 
-    public void updateTask(int id, String task) {
+    public void updateTask(int id, String task,String description) {
         ContentValues contentValues = new ContentValues();
         contentValues.put(TASK, task);
+        contentValues.put(DESCRIPTION, description);
         database.update(TODO_TABLE, contentValues, ID + "=?", new String[]{String.valueOf(id)});
 
     }
