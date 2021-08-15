@@ -19,7 +19,8 @@ public class SplashActivity extends AppCompatActivity {
         new Timer().schedule(new TimerTask() {
             @Override
             public void run() {
-                startActivity(new Intent(new Intent(SplashActivity.this,MainActivity.class)));
+                startActivity(new Intent(new Intent(SplashActivity.this,LoginActivity.class)));
+                finishAffinity();
             }
         },2000);
     }

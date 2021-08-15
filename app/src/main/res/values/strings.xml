@@ -11,5 +11,19 @@
     <string name="diary_app">Diary App</string>
     <string name="diary">Diary</string>
     <string name="save_your_memories">Save Your Memories</string>
-    <string name="diary">Diary</string>
+    <string name="search">Search</string>
+    <string name="more">More</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="welcome_to_sign_up">Welcome to sign Up</string>
+    <string name="enter_your_e_mail">Enter Your E-mail</string>
+    <string name="password">Password</string>
+    <string name="register">Register</string>
+    <string name="already_have_account">Already Have Account</string>
+    <string name="login"><u> Login </u></string>
+    <string name="sign_up_with_google">Sign Up With Google</string>
+    <string name="sign_up_with_facebook">Sign Up With FaceBook</string>
+    <string name="enter_your_name">Enter Your Name</string>
+    <string name="log">Login</string>
+    <string name="upload_your_image">Upload Your profile Image</string>
+
 </resources>
