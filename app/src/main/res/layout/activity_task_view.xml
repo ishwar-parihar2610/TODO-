@@ -102,6 +102,30 @@
             android:textColor="#384356"
             android:fontFamily="@font/opensansregular"/>
 
+        <TextView
+            android:id="@+id/dateTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/task_description"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="Date"
+            android:textSize="30sp"
+            android:textColor="#384356"
+            android:layout_margin="20dp"
+            android:fontFamily="@font/opensanssemibold"/>
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/dateTv"
+            app:layout_constraintStart_toStartOf="@id/task_title_tv"
+            android:text="Date"
+            android:textSize="20sp"
+            android:textColor="#384356"
+
+            android:fontFamily="@font/opensansregular"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -125,7 +125,7 @@
                     app:layout_constraintStart_toEndOf="@id/forLogin"
                     app:layout_constraintTop_toTopOf="@id/forLogin" />
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <!--<androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/googleSignUp"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
@@ -183,7 +183,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
-
+-->
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </ScrollView>

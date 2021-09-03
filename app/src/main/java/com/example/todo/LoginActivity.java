@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.todo.Modal.LoginModel;
 import com.example.todo.databinding.ActivityLoginBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -22,12 +23,19 @@ public class LoginActivity extends AppCompatActivity {
     ActivityLoginBinding binding;
     FirebaseAuth auth;
     private static final String TAG = "Login_Activity";
+    FirebaseUser user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login);
         auth = FirebaseAuth.getInstance();
+        user = auth.getCurrentUser();
+      /*  if (user != null) {
+            startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+            Log.d(TAG, "after LogOut uuid " + user.getUid());
+        }*/
+
 
         binding.loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,12 +56,13 @@ public class LoginActivity extends AppCompatActivity {
         binding.signUpTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this,SignUpActivity.class));
+                startActivity(new Intent(LoginActivity.this, SignUpActivity.class));
             }
         });
 
 
     }
+
 
     private void signIn(String email, String password) {
         auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -61,9 +70,9 @@ public class LoginActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     Log.d(TAG, "signInWithEmail:success");
-                    FirebaseUser user = auth.getCurrentUser();
+                    user = auth.getCurrentUser();
                     Toast.makeText(LoginActivity.this, "Success", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(LoginActivity.this,ImageActivity.class));
+                    startActivity(new Intent(LoginActivity.this, HomeActivity.class));
                     updateUI(user);
                 } else {
                     Log.w(TAG, "signInWithEmail:failure", task.getException());

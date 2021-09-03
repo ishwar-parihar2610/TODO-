@@ -41,7 +41,7 @@ public class DataBaseHandler extends SQLiteOpenHelper {
         onCreate(database);
     }
 
-    public void openDataBase() {
+   /* public void openDataBase() {
         database = this.getWritableDatabase();
     }
 
@@ -89,6 +89,6 @@ public class DataBaseHandler extends SQLiteOpenHelper {
 
     public void deleteTask(int id){
     database.delete(TODO_TABLE,ID + "=?",new String[]{String.valueOf(id)});
-    }
+    }*/
 
 }

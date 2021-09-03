@@ -31,7 +31,7 @@
 
             <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="match_parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
@@ -154,7 +154,8 @@
                         android:background="#4559CA"
                         app:layout_constraintEnd_toEndOf="@id/emailEdt"
                         app:layout_constraintStart_toStartOf="@id/emailEdt"
-                        app:layout_constraintTop_toBottomOf="@id/loginTv">
+                        app:layout_constraintTop_toBottomOf="@id/loginTv"
+                        app:layout_constraintBottom_toBottomOf="parent">
 
                         <ImageView
                             android:id="@+id/google_icon"
@@ -180,7 +181,7 @@
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
+                  <!--  <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/fbSignUp"
                         android:layout_width="0dp"
                         android:layout_height="50dp"
@@ -203,7 +204,7 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
-                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>-->
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 

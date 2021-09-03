@@ -19,12 +19,13 @@ public class TaskViewActivity extends AppCompatActivity {
         if (getIntent().getStringExtra("task")!=null){
             binding.taskTitle.setText(getIntent().getStringExtra("task"));
             binding.taskDescription.setText(getIntent().getStringExtra("description"));
+            binding.date.setText("Created At : " + getIntent().getStringExtra("date"));
 
         }
         binding.backIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(TaskViewActivity.this,MainActivity.class));
+                startActivity(new Intent(TaskViewActivity.this,HomeActivity.class));
             }
         });
     }

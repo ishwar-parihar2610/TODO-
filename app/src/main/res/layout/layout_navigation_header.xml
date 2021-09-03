@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <io.github.florent37.shapeofview.shapes.CircleView
+        android:id="@+id/circleView"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="15dp"
+        app:layout_constraintBottom_toTopOf="@id/view">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/user"/>
+
+
+    </io.github.florent37.shapeofview.shapes.CircleView>
+
+    <TextView
+        android:id="@+id/userName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/circleView"
+        app:layout_constraintStart_toEndOf="@id/circleView"
+        app:layout_constraintBottom_toTopOf="@id/gmailId"
+        android:text="User Name"
+        android:textColor="#384356"
+        android:layout_marginStart="15dp"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/gmailId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ishwar1234@gmail.com"
+        android:textColor="#009688"
+        app:layout_constraintTop_toBottomOf="@id/userName"
+        app:layout_constraintStart_toStartOf="@id/userName"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="@id/circleView" />
+    
+    
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#90000000"
+        app:layout_constraintTop_toBottomOf="@id/circleView"
+        android:layout_marginTop="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
